@@ -1,0 +1,18 @@
+repositories {
+    google()
+    jcenter()
+    maven { url "https://s3.amazonaws.com/moat-sdk-builds" }
+}
+
+dependencies {
+    // ... other project dependencies
+
+    // For interstitials
+    implementation('com.mopub:mopub-sdk-interstitial:+@aar') {
+        transitive = true
+    }
+
+    // Recommended for SDK to be able to get Android Advertising ID
+    implementation 'com.google.android.gms:play-services-basement:16.0.0'
+    implementation 'com.google.android.gms:play-services-ads-identifier:16.0.0'
+}

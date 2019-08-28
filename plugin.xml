@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-ny-mopub" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>NyanMoPub</name>
+
+    <js-module name="NyanMoPub" src="www/NyanMoPub.js">
+        <clobbers target="cordova.plugins.NyanMoPub" />
+    </js-module>
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="NyanMoPub">
+                <param name="android-package" value="id.nyandev.cordova.mopub.android.NyanMoPub" />
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <meta-data android:name="com.google.android.gms.version"
+                android:value="@integer/google_play_services_version" />
+        
+            <!-- MoPub's consent dialog -->
+            <activity android:name="com.mopub.common.privacy.ConsentDialogActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>
+
+            <!-- All ad formats -->
+            <activity android:name="com.mopub.common.MoPubBrowser" android:configChanges="keyboardHidden|orientation|screenSize"/>
+
+            <!-- Interstitials -->
+            <activity android:name="com.mopub.mobileads.MoPubActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>
+            <activity android:name="com.mopub.mobileads.MraidActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>
+
+            <!-- Rewarded Video and Rewarded Playables -->
+            <activity android:name="com.mopub.mobileads.RewardedMraidActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>
+            <activity android:name="com.mopub.mobileads.MraidVideoPlayerActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <!-- Required permissions -->
+            <uses-permission android:name="android.permission.INTERNET" />
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+            <!-- Optional permissions. Will pass Lat/Lon values when available. Choose either Coarse or Fine -->
+            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+            <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+            <!-- Optional permissions. Used for MRAID 2.0 storePicture ads -->
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        </config-file>
+
+        <framework custom="true" src="src/android/mopub-sdk.gradle" type="gradleReference" />
+        <dependency id="es6-promise-plugin" version="4.1.0" />
+
+        <source-file src="src/android/NyanMoPub.java" target-dir="src/id/nyandev/cordova/mopub/android" />
+    </platform>
+</plugin>

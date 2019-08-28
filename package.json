@@ -1,0 +1,25 @@
+{
+  "name": "cordova-plugin-ny-mopub",
+  "version": "0.0.1",
+  "description": "Cordova MoPub for Android Platform",
+  "cordova": {
+    "id": "cordova-plugin-ny-mopub",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nyancodeid/cordova-plugin-ny-mopub.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "author": "Ryan Aunur Rassyid",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nyancodeid/cordova-plugin-ny-mopub/issues"
+  },
+  "homepage": "https://github.com/nyancodeid/cordova-plugin-ny-mopub#readme"
+}
