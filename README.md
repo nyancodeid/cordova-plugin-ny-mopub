@@ -4,13 +4,23 @@
 ```js
 var EXAMPLE_INTERSTITIAL_ID = "24534e1901884e398f1253216226017e"
 
-cordova.plugins.NyanMoPub.initialize(EXAMPLE_INTERSTITIAL_ID);
+cordova.plugins.NyanMoPub.initialize(EXAMPLE_INTERSTITIAL_ID).then(function() {
+  // do something
+}); 
+// run `load` test using test id
+cordova.plugins.NyanMoPub.load("test").then(function() {
+  // do something
+}); 
+cordova.plugins.NyanMoPub.load("interstitial", YOUR_INTERSTITIAL_ID).then(function() {
+  // do something
+});
 
-cordova.plugins.NyanMoPub.load("test"); // run `load` test using test id
-cordova.plugins.NyanMoPub.load("interstitial", YOUR_INTERSTITIAL_ID);
-
-cordova.plugins.NyanMoPub.show("test");
-cordova.plugins.NyanMoPub.show("interstitial");
+cordova.plugins.NyanMoPub.show("test").then(function() {
+  // do something
+});
+cordova.plugins.NyanMoPub.show("interstitial").then(function() {
+  // do something
+});
 ```
 
 ```js
